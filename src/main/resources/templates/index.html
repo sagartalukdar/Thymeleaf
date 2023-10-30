@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+	<link rel="stylesheet" type="text/css" th:href="@{cssfile/style.css}"></link>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+	<div th:replace="~{header::header}"></div>
+<h2>ev</h2>
+<h4 th:text="#{ty.nam}"></h4>
+<p th:text="#{ty.nam}"></p>
+<p th:utext="#{ty.nam}"></p>
+<p>[[${obj}]]</p>
+<p th:text="${obj}"> </p>
+<p th:text="${uobj.name}"></p>
+<p >[[${uobj.id}]]</p>
+
+<div th:object="${uobj}">
+	<p>[[*{id}]]</p>
+	<p>[[*{name}]]</p>
+	<p>[[*{add}]]</p>
+</div>
+<a th:href="@{profile}">profile</a>
+<a th:href="@{'profile/'+${uobj.id}}">up</a>
+<div th:replace="~{foter::foter}"></div>
+<p> litarle <span th:text="5+85"></span>.</p>
+<div th:if="${uobj!=null}">true</div>
+<div th:text="'message '+ ${msg}"></div>
+<div th:text="|message ${msg}|"></div>
+message [[${msg}]]
+<div th:with="num=${4+9}">
+	[[${num}]]
+</div>
+[[${mu?.id}]]
+<input type="submit" value="value" th:attr="value=#{submit.value}">
+<th:block th:if="2>0">if block</th:block>
+<th:block th:unless="2>0">else block</th:block>
+</body>
+</html>
